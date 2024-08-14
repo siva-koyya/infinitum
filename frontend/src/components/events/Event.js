@@ -12,7 +12,6 @@ function Event() {
     const dispatch = useDispatch()
     const getEventData = async () => {
         const response = await axios.get("http://localhost:5555/event")
-        // console.log(response.data,"--><><>")
         if (response.data.length > 0) {
             setData(response.data)
         }
@@ -50,10 +49,10 @@ function Event() {
                     <ul style={{height:600}} className='h-4/6 overflow-y-scroll'>
                         {data === null ? <li className=' bg-gray-500 flex m-3 p-3  rounded-md flex-wrap justify-around  border-2 h-auto items-center' >there is no Events</li>
                             : data.map((item, index) => (
-                                <li key={index} className=' bg-gray-500 flex m-3 p-3  rounded-md flex-wrap justify-around  border-2 h-auto items-center'>
-                                    <h3 className=" font-medium w-40  h-auto break-words">{item.eventname}</h3>
-                                    <h3 className='font-medium w-52 h-auto break-words'> {item.user}</h3>
-                                    <div className=' w-64'>
+                                <li key={index} className=' bg-gray-500 flex m-3 p-3 w-full rounded-md flex-wrap justify-around border-2 h-auto items-center'>
+                                    <h3 className=" font-medium w-40 h-auto break-words">{item.eventname}</h3>
+                                    <h3 className='font-medium w-48 h-auto break-words'> {item.user}</h3>
+                                    <div className=' w-60'>
                                         {item.images.length >0 ?(
                                             <>
                                              <img src={`http://localhost:5555/${item.images[0].path}`} className=' object-contain saturate-50 rounded-xl w-60 h-28 border-2 '></img>
@@ -64,7 +63,7 @@ function Event() {
                                         )}
                                        
                                     </div>
-                                    <div className=' w-64'>
+                                    <div className=' w-60'>
                                         {item.videos.length > 0 ? (
                                             <>
                                             <video
