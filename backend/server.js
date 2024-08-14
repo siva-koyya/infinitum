@@ -19,7 +19,10 @@ const uploadDir = path.join(__dirname, 'uploads');
 app.use('/uploads', express.static(uploadDir));
 
 async function connectDb(){
-  await  mongoose.connect(`${URL}`)
+  await  mongoose.connect(`${URL}`, {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true,
+  })
     console.log("sucussfully")
 }
 try {
