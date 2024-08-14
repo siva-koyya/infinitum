@@ -20,8 +20,8 @@ app.use('/uploads', express.static(uploadDir));
 
 async function connectDb(){
   await  mongoose.connect(`${URL}`, {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true,
+    ssl: true,
+     tlsAllowInvalidCertificates: true,
   })
     console.log("sucussfully")
 }
